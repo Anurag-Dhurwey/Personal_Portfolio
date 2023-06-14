@@ -1,0 +1,14 @@
+
+body{
+    /* --items: 5; */
+    --width: clamp(150px, 40vw, 350px);
+    --height: clamp(200px, 45vh, 300px);
+    --ac-width: clamp(150px, 85vw, 500px);
+    --ac-height: clamp(200px, 55vh, 450px);
+    /* --lg-width: clamp(150px, 85vw, 450px);
+    --lg-height: clamp(200px, 50vh, 450px); */
+    /* --x: calc(var(--active) * 400%);
+    --y: calc(var(--active) * 100%);
+    --rot: calc(var(--active) * 120deg); */
+    /* --opacity: calc(var(--zIndex) / var(--items) * 3 - 2); */
+}
