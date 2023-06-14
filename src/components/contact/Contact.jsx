@@ -18,11 +18,14 @@ const Contact = () => {
     email: Yup.string().email("Invalid email address").required("Required"),
   };
 
-  const sendMail = async (value) => {
+  const sendMail = async (value,{setSubmitting}) => {
     try {
-      const data = await fetch("api/node", { method: "POST",headers:{'Content-Type': 'application/json'} });
+      const data = await fetch("api/contact-message", { method: "POST",headers:{'Content-Type': 'application/json'},body:JSON.stringify(value) });
      const jsonData= await data.json()
-      console.log(jsonData);
+     if(!jsonData.error){
+      setSubmitting(false)
+      alert('Message sent successfully')
+     }
     } catch (error) {
       console.log(error);
     }
@@ -59,14 +62,15 @@ const Contact = () => {
         <Formik
           initialValues={{ name: "", email: "", message: "" }}
           validationSchema={Yup.object(Yup_validate)}
-          onSubmit={(value)=>{
+          onSubmit={(value,{setSubmitting})=>{
         
-           sendMail(value)
+           sendMail(value,{setSubmitting})
           }}
         >
-          <Form className="flex flex-col justify-center items-center gap-y-4 ">
+          {({isSubmitting})=>(
+            <Form className="flex flex-col justify-center items-center gap-y-4 ">
             {/* <label htmlFor="name">Name</label> */}
-            <div>
+            <div> 
               <Field
                 name="name"
                 type="text"
@@ -104,11 +108,12 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="bg-blue-800 text-yellow-50 rounded-lg w-[300px] py-2"
+              className={`bg-blue-800  rounded-lg w-[300px] py-2 ${isSubmitting?'text-green-600':'text-yellow-50'}`}
             >
-              Submit
+              {isSubmitting?'Submitting':'Submit'}
             </button>
           </Form>
+          )}
         </Formik>
       </div>
     </div>
