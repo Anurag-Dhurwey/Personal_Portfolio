@@ -71,7 +71,13 @@ const handleMouseUp = () => {
   }, []);
 
   return (
-    <div  onTouchMove={handleMouseMove} onMouseMove={handleMouseMove} onMouseDown={handleMouseDown} onTouchStart={handleMouseDown} onMouseUp={handleMouseUp} onTouchEnd={handleMouseUp} className="h-[100%] w-[100%] ">
+    <div  onTouchMove={handleMouseMove} onMouseMove={handleMouseMove} onMouseDown={handleMouseDown} onTouchStart={handleMouseDown} onMouseUp={handleMouseUp} onTouchEnd={handleMouseUp} className="min-h-screen h-[100%] w-[100%] ">
+      <div className="h-[100vh] w-[100%] flex justify-between items-center flex-col">
+        <div className="py-8">
+          <h2 className="font-extrabold text-center text-[aqua] text-4xl uppercase">
+            About and education
+          </h2>
+        </div>
       <div className="relative h-[100vh] w-[100%] flex justify-center items-center flex-col overflow-hidden pointer-events-none">
         {img.map((item, i) => {
           const zIndex =
@@ -101,6 +107,7 @@ const handleMouseUp = () => {
             </div>
           );
         })}
+      </div>
       </div>
     </div>
   );

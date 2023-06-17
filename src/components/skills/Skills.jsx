@@ -19,7 +19,13 @@ import { Wrapper } from "@/container";
 const Skills = () => {
   const skills = [html5, css, javascript, nextjs, nodejs, firebase, sanity];
   return (
-    <div className="w-[100%] h-[100%] flex justify-evenly items-center flex-wrap ">
+    <div className="w-[100%] min-h-screen h-[100%] flex justify-evenly items-center flex-col">
+      <div className="py-8">
+        <h2 className="font-extrabold text-center text-[aqua] text-4xl uppercase">
+          SKILLS
+        </h2>
+      </div>
+      <div className="w-[100%] h-[100%] flex justify-evenly items-center flex-wrap ">
       {skills.map((item, i) => {
         return (
           <div
@@ -30,6 +36,7 @@ const Skills = () => {
           </div>
         );
       })}
+    </div>
     </div>
   );
 };

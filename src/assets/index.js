@@ -14,6 +14,12 @@ import sanity from "./skills_logo/sanity.jpg";
 // import strapi from "./skills_logo/strapi.jfif";
 import calling from './contact/calling.png'
 import mail from './contact/mail.png'
+import instagram from './social_Icons/instagram.png'
+import facebook from './social_Icons/facebook.png'
+import github from './social_Icons/github.png'
+import linkedin from './social_Icons/linkedin.png'
+import twitter from './social_Icons/twitter.png'
+
 export {
   LOGO,
   html5,
@@ -27,7 +33,20 @@ mongoDB,
   nextjs,
   nodejs,
   sanity,
-  calling,
-  mail
+
 //   strapi,
 };
+
+export{
+  calling,
+  mail
+}
+
+
+export {
+instagram,
+facebook,
+linkedin,
+twitter,
+github
+}

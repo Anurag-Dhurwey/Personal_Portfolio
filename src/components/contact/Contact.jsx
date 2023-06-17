@@ -36,24 +36,30 @@ const Contact = () => {
   };
 
   return (
-    <div className="h-[100%] w-[100%] flex justify-evenly items-center max-[820px]:flex-col max-[820px]:gap-y-8 ">
+    <div className="min-h-screen h-[100%] w-[100%] flex justify-evenly items-center flex-col">
+      <div className="py-8">
+        <h2 className="font-extrabold text-center text-[aqua] text-4xl uppercase">
+          Contact and support
+        </h2>
+      </div>
+      <div className="h-[100%] w-[100%] flex justify-evenly items-center max-[820px]:flex-col max-[820px]:gap-y-8 ">
       <div className="flex justify-center items-center flex-col gap-y-4">
         <Link
           href="mailto:anuragdhurwey9211@gmail.com"
-          className="flex justify-between items-center gap-x-4 bg-pink-200 px-8 py-2 rounded-xl  "
+          className="flex justify-between items-center gap-x-4 max-[375px]:gap-x-2 bg-pink-200 px-8 max-[375px]:px-4 py-2 rounded-xl  "
         >
-          <Image src={mail} alt="mail icon" className="h-[40px] w-[40px]" />
+          <Image src={mail} alt="mail icon" className="h-[40px] w-[40px] max-[375px]:w-[25px] max-[375px]:h-[25px]" />
           <p className="p-text">anuragdhurwey9211@gmail.com</p>
         </Link>
 
         <Link
           href="tel:+91 7067996494"
-          className="flex justify-between items-center gap-x-4 bg-pink-200 px-8 py-2 rounded-xl"
+          className="flex justify-between items-center gap-x-4  bg-pink-200 px-8  py-2 rounded-xl"
         >
           <Image
             src={calling}
             alt="calling icon"
-            className="h-[40px] w-[40px]"
+            className="h-[40px] w-[40px] max-[375px]:w-[25px] max-[375px]:h-[25px]"
           />
           <p className="p-text">+91 7067996494</p>
         </Link>
@@ -116,6 +122,7 @@ const Contact = () => {
           )}
         </Formik>
       </div>
+    </div>
     </div>
   );
 };
