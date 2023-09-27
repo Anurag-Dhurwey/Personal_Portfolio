@@ -2,19 +2,24 @@ import Image from "next/image";
 import React from "react";
 import Home_Img from "../../assets/img/IMG_20221215_004629_127.jpg";
 import Profile_Img from "@/assets/img/profile2.png";
+import Navicons from "./miniComps/Navicons"
 import { Wrapper } from "../../container";
-import { mongoDB, nextjs, nodejs } from "@/assets";
+// import { mongoDB, nextjs, nodejs } from "@/assets";
 import style from "./home.module.css";
 import { BiDownload } from "react-icons/bi";
 const Home = () => {
-  const mainSkills = [nextjs, nodejs, mongoDB];
+  // const mainSkills = [nextjs, nodejs, mongoDB];
   return (
     <>
       {/* flex justify-center items-start gap-x-2 max-[821px]:flex-col max-[820px]:justify-start max-[820px]:items-center max-[820px]:gap-y-4 max-[820px]:self-start */}
       <section className={style.home_section}>
         {/* <div > */}
-        <div className={style.home_top}>
-          <div className={style.home_left}>
+        <div 
+        className={style.home_top}
+        >
+          <div 
+          className={style.home_left}
+          >
             <div className={style.home_name}>
               {/* <div className=""> */}
               <h2 className=" text-xl text-[#0000ffd5] font-bold">
@@ -45,26 +50,13 @@ const Home = () => {
 
           {/* </div> */}
           {/* <div className=" "> */}
-          <div className={style.home_profile_img_div}>
-            <Image src={Profile_Img} alt="img" className={style.home_img} />
+          <div className={`${style.home_right}`}  >
+            <Image src={Profile_Img} alt="img" className={style.home_img} style={{maxWidth:"none"}} />
             {/* </div> */}
           </div>
         </div>
 
-        {/* <div className=" h-full w-full flex justify-between items-center min-[821px]:flex-col my-[30px] ">
-          {mainSkills.map((item, i) => {
-            return (
-              <Image
-                src={item}
-                alt="next"
-                className={`h-[80px] w-auto rounded-full ${
-                  i === 0 || i === 2 ? "self-start" : ""
-                }`}
-                key={i}
-              />
-            );
-          })}
-        </div> */}
+<Navicons/>
       </section>
     </>
   );

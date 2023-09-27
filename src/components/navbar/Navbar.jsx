@@ -8,7 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { LOGO } from "@/assets";
 
-const Head_nav = ["home", "projects", "skills","about", "contact"];
+const Head_nav = ["home", "skills", "projects","education", "contact"];
 
 const Navbar = () => {
   const value = useSelector((state) => state.modeChanger.value);

@@ -113,4 +113,4 @@ const handleMouseUp = () => {
   );
 };
 
-export default Wrapper(About, "about", "bg-[var(--secondry-bg)]");
+export default Wrapper(About, "education", "bg-[var(--secondry-bg)]");

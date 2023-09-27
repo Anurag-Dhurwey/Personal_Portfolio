@@ -1,5 +1,5 @@
 import React from "react";
-
+import style from "./skills.module.css";
 import {
   html5,
   css,
@@ -17,26 +17,49 @@ import Image from "next/image";
 import { Wrapper } from "@/container";
 
 const Skills = () => {
-  const skills = [html5, css, javascript, nextjs, nodejs, firebase, sanity];
+  const skills = [
+    { per: 75, logos: [html5, css] },
+    { per: 65, logos: [javascript] },
+    { per: 60, logos: [nextjs] },
+    { per: 45, logos: [nodejs] },
+    { per: 35, logos: [firebase] },
+    { per: 70, logos: [sanity] },
+  ];
   return (
-    <div className="w-[100%] min-h-screen h-[100%] flex justify-evenly items-center flex-col">
+    <div className={style.skills_parent_div}>
       <div className="py-8">
         <h2 className="font-extrabold text-center text-[aqua] text-4xl uppercase">
           SKILLS
         </h2>
       </div>
-      <div className="w-[100%] h-[100%] flex justify-evenly items-center flex-wrap ">
-      {skills.map((item, i) => {
-        return (
-          <div
-            key={i}
-            className=" flex justify-center items-center rounded-[100%] overflow-hidden h-[100px] w-[100px] shadow-[5px_5px_14px_1px_rgba(0,0,0,0.75)]"
-          >
-            <Image src={item} alt="skills" className="h-auto" />
-          </div>
-        );
-      })}
-    </div>
+      <ul className={style.skills_ul}>
+        {skills.map((item, i) => {
+          const { per, logos } = item;
+          return (
+            <li key={i}>
+              <span className={style.skills_logo}>
+                {logos.map((img, i) => {
+                  return (
+                    <span
+                      key={i + Date.now()}
+                      className={style.skills_logo_img_border}
+                    >
+                      <Image src={img} alt="skills" className={style.skills_logo_img} />
+                    </span>
+                  );
+                })}
+              </span>
+              <span className={style.skills_outer_bar}>
+                <span
+                  style={{ width: `${per}%` }}
+                  className={style.skills_inner_bar}
+                ></span>
+                <p style={{fontSize:'12px',fontWeight:'bolder'}}>{per}%</p>
+              </span>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
