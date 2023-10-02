@@ -10,7 +10,7 @@ import Link from "next/link";
 const RS_Navigation = ({ idName }) => {
   // const icons = [GrContact, AiOutlineHome, GiSkills, GrProjects, FcAbout];
   return (
-    <div className="" >
+    // <div className="" >
       <ul className="flex flex-col justify-center items-center gap-y-4">
         {Head_nav.map((nav, i) => {
           return (
@@ -75,7 +75,7 @@ const RS_Navigation = ({ idName }) => {
           );
         })}
       </ul>
-    </div>
+    // </div>
   );
 };
 

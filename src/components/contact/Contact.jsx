@@ -127,4 +127,16 @@ const Contact = () => {
   );
 };
 
-export default Wrapper(Contact, "contact", "bg-[var(--secondry-bg)]");
+const Expo = () => {
+  return (
+    <>
+     <Wrapper id="home" bg="bg-[var(--primary-bg)]">
+      <Contact/>
+      </Wrapper> 
+    </>
+  )
+}
+
+
+// export default Wrapper(Contact, "contact", "bg-[var(--primary-bg)]");
+export default Expo;

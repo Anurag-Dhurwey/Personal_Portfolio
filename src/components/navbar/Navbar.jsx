@@ -85,7 +85,6 @@ const Navbar = () => {
       <div className="z-[10] text-xs sticky top-12 text-red-700 flex justify-center items-center">
         <p>This site is under devlopment</p>
       </div>
-      {/* </div> */}
     </>
   );
 };

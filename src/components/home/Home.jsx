@@ -1,36 +1,26 @@
+"use client"
 import Image from "next/image";
 import React from "react";
-import Home_Img from "../../assets/img/IMG_20221215_004629_127.jpg";
-import Profile_Img from "@/assets/img/profile2.png";
-import Navicons from "./miniComps/Navicons"
-import { Wrapper } from "../../container";
-// import { mongoDB, nextjs, nodejs } from "@/assets";
+import Profile_Img from "@/assets/img/profile_img/profile2.png";
+import Navicons from "./miniComps/Navicons";
+import { Wrapper } from "@/container";
 import style from "./home.module.css";
 import { BiDownload } from "react-icons/bi";
 const Home = () => {
-  // const mainSkills = [nextjs, nodejs, mongoDB];
   return (
     <>
-      {/* flex justify-center items-start gap-x-2 max-[821px]:flex-col max-[820px]:justify-start max-[820px]:items-center max-[820px]:gap-y-4 max-[820px]:self-start */}
-      <section className={style.home_section}>
-        {/* <div > */}
-        <div 
-        className={style.home_top}
-        >
-          <div 
-          className={style.home_left}
-          >
+ <main className={style.home_section}>
+        <div className={style.home_top}>
+          <div className={style.home_left}>
             <div className={style.home_name}>
-              {/* <div className=""> */}
-              <h2 className=" text-xl text-[#0000ffd5] font-bold">
+              <h2 className=" text-xl text-[#0000ffd5] font-bold flex flex-col">
                 Hi
-                <p className="text-2xl text-[#04cb04e7]  font-extrabold font-sans">
+                <span className="text-2xl text-[#04cb04e7]  font-extrabold font-sans">
                   I&apos;m{" "}
                   <span className="text-[#eb24d7d9]">ANURAG DHURWEY</span>
-                </p>
+                </span>
               </h2>
               <h3>An intermediate Web developer;</h3>
-              {/* </div> */}
             </div>
             <button className={style.home_resume_btn}>
               Resume
@@ -48,19 +38,31 @@ const Home = () => {
             </div>
           </div>
 
-          {/* </div> */}
-          {/* <div className=" "> */}
-          <div className={`${style.home_right}`}  >
-            <Image src={Profile_Img} alt="img" className={style.home_img} style={{maxWidth:"none"}} />
-            {/* </div> */}
+          <div className={`${style.home_right}`}>
+            <Image
+              src={Profile_Img}
+              alt="img"
+              className={style.home_img}
+              style={{ maxWidth: "none" }}
+            />
           </div>
         </div>
 
-<Navicons/>
-      </section>
+        <Navicons />
+      </main>
     </>
   );
 };
 
-export default Wrapper(Home, "home", "bg-[var(--primary-bg)]");
-// export default Home;
+const Expo = () => {
+  return (
+    <>
+     <Wrapper id="home" bg="bg-[var(--primary-bg)]">
+      <Home/>
+      </Wrapper> 
+    </>
+  )
+}
+
+
+export default Expo;
