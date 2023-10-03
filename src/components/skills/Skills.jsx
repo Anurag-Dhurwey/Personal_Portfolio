@@ -126,7 +126,7 @@ const Skills = () => {
 const Expo = () => {
   return (
     <>
-     <Wrapper id="home" bg="bg-[var(--secondry-bg)]">
+     <Wrapper id="skills" bg="bg-[var(--secondry-bg)]">
       <Skills/>
       </Wrapper> 
     </>

@@ -130,7 +130,7 @@ const Contact = () => {
 const Expo = () => {
   return (
     <>
-     <Wrapper id="home" bg="bg-[var(--primary-bg)]">
+     <Wrapper id="contact" bg="bg-[var(--primary-bg)]">
       <Contact/>
       </Wrapper> 
     </>

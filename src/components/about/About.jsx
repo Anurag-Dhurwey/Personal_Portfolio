@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import "./About.css";
 import { Wrapper } from "@/container";
 
-function About  ()  {
+function About() {
   const img = [
     "https://media.istockphoto.com/id/949299844/it/foto/vista-prospettica-dellesterno-delledificio-contemporaneo.jpg?s=612x612&w=0&k=20&c=_DR1aRHuTEV3EYBJo1ZXq1pF4SgwB9EVWQLaBj4sC5g=",
     "https://media.istockphoto.com/id/1150545984/it/foto/palazzo-moderno-di-lusso-con-piscina.jpg?s=612x612&w=0&k=20&c=Pbrai_VGc9tUviMCF1UaBErdS1YGyIVWsD29jzMZwTY=",
@@ -108,6 +108,13 @@ function About  ()  {
                     : "h-[var(--height)] w-[var(--width)]"
                 }  absolute rounded-xl overflow-hidden shadow-[0_10px_50px_10px_rgba(0,0,0,.5)] origin-[0%_100%]  pointer-events-none select-none `}
               >
+                <p className="absolute top-0 z-[1]">
+                  Designed and built a social media web application using
+                  Next.js, Redux Toolkit, Sanity as a headless CMS, and
+                  NextAuth.js for secure authentication. Created dynamic and
+                  interactive user interfaces with real-time updates. Skills
+                  Used: Next.js, Redux Toolkit, Sanity, NextAuth.js.
+                </p>
                 <div className="w-full h-full absolute">
                   <Image
                     alt="about"
@@ -124,18 +131,16 @@ function About  ()  {
       </div>
     </div>
   );
-};
-
+}
 
 const Expo = () => {
   return (
     <>
-     <Wrapper id="home" bg="bg-[var(--secondry-bg)]">
-      <About/>
-      </Wrapper> 
+      <Wrapper id="education" bg="bg-[var(--secondry-bg)]">
+        <About />
+      </Wrapper>
     </>
-  )
-}
+  );
+};
 
-
-export default Expo
+export default Expo;
