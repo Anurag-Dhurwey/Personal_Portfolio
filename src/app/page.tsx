@@ -1,5 +1,5 @@
 
-import { Navbar, Home, Projects, Skills, Contact, Footer,About } from "../components";
+import { Navbar, Home, Projects, Skills, Contact, Footer,About, About_education } from "../components";
 export default function Anurag() {
   return (
     <main className="min-h-screen">
@@ -7,7 +7,8 @@ export default function Anurag() {
       <Home/>
       <Skills/>
       <Projects/>
-      <About/>
+      {/* <About/> */}
+      <About_education/>
       <Contact/>
       <Footer/>
     </main>

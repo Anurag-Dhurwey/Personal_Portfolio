@@ -1,6 +1,8 @@
 import Navbar from "./navbar/Navbar";
 import Home from "./home/Home";
 import About from './about/About'
+import About_education from './about/About_education'
+
 import Projects from "./projects/Projects";
 import Skills from "./skills/Skills";
 import Contact from "./contact/Contact";
@@ -12,6 +14,7 @@ export {
     Navbar,
     Home,
     About,
+    About_education,
     Projects,
     Skills,
     Contact,

@@ -34,6 +34,8 @@
   gap: 10px 10px;
   width: 100%;
   height: fit-content;
+  padding-bottom: 8px ;
+  border-bottom: 2px dashed black;
 }
 
 .li_first_div {

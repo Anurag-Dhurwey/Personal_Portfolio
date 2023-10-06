@@ -10,6 +10,7 @@ import style from "./project.module.css";
 const Projects = () => {
   const myProjects = [
     {
+      title:"Ecommerce",
       logo: ecommerce,
       webUrl: "https://digital-shop.onrender.com",
       sourceCode:
@@ -19,7 +20,7 @@ const Projects = () => {
         Implemented user authentication, product listings, shopping cart functionality, and
         payment processing`,
     },
-    {
+    { title:"Social-media",
       logo: social_media,
       webUrl: "https://multi-purpose-site.vercel.app/",
       sourceCode: "https://gitlab.com/multi_purpose_site/multi_purpose_site",
@@ -37,11 +38,11 @@ const Projects = () => {
       </div>
       <ul className={style.ul}>
         {myProjects.map((project, i) => {
-          const { sourceCode, webUrl, logo, usedTools, desc } = project;
+          const { sourceCode, webUrl, logo, usedTools, desc,title } = project;
           return (
             <li key={i + sourceCode} className={style.li}>
               <div className={style.li_first_div}>
-                <h2 style={{ fontWeight: "bolder" }}>E-commerce Website</h2>
+                <h2 style={{ fontWeight: "bolder" }}>{title}</h2>
                 <div className={style.project_img}>
                   <Image
                     src={logo}

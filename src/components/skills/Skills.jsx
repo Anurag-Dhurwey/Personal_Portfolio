@@ -72,7 +72,7 @@ const Skills = () => {
           const { category, list } = item;
 
           return (
-            <li key={i} style={{ alignSelf: "flex-start" }}>
+            <li key={i} style={{ alignSelf: "flex-start" ,paddingBottom:'8px',borderBottom:'2px dashed black'}}>
               <h2 className={style.skills_category_head_title}>{category}:</h2>
               <ul className={style.skills_category_list}>
                 {list.map((skill, i) => {
@@ -133,5 +133,4 @@ const Expo = () => {
   )
 }
 
-// export default Wrapper(Skills, "skills", "bg-[var(--secondry-bg)]");
 export default Expo
