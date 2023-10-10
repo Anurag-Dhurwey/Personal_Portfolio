@@ -14,9 +14,10 @@
     line-height: 2.5rem;
     font-weight: 800;
     color: aqua;
+    text-transform: uppercase;
 }
 .ul {
-     display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;

@@ -4,31 +4,33 @@ import React, { useEffect, useState } from "react";
 import style from "./about_education.module.css";
 import Image from "next/image";
 const About_education = () => {
-  interface imgType {
-    url: string;
-    title: string;
-    desc: string;
-  }
+  // interface imgType {
+  //   url: string;
+  //   title: string;
+  //   desc: string;
+  // }
   const img = [
     {
       url: "https://media.istockphoto.com/id/949299844/it/foto/vista-prospettica-dellesterno-delledificio-contemporaneo.jpg?s=612x612&w=0&k=20&c=_DR1aRHuTEV3EYBJo1ZXq1pF4SgwB9EVWQLaBj4sC5g=",
       title: "10th Standard",
-      desc: "when i was in 10 class",
+      desc: `Developed an e-commerce platform using React, Strapi, Stripe, and Implemented user authentication, product listings, shopping cart functionality, and
+      payment processing.`,
     },
     {
       url: "https://media.istockphoto.com/id/1150545984/it/foto/palazzo-moderno-di-lusso-con-piscina.jpg?s=612x612&w=0&k=20&c=Pbrai_VGc9tUviMCF1UaBErdS1YGyIVWsD29jzMZwTY=",
-      title: "10th Standard",
+      title: "12th Standard",
       desc: "when i was in 10 class",
     },
     {
       url: "https://media.istockphoto.com/id/1214351345/it/foto/guardando-direttamente-lo-skyline-del-quartiere-finanziario-nel-centro-di-londra-immagine-di.jpg?s=612x612&w=0&k=20&c=oNNbPzPvcQ-4RA6AeatNIxHQIafBiXmDRtUUY0Ska-I=",
-      title: "10th Standard",
-      desc: "when i was in 10 class",
+      title: "Graduation",
+      desc: `Developed an e-commerce platform using React, Strapi, Stripe, and Implemented user authentication, product listings, shopping cart functionality, and
+      payment processing.`,
     },
   ];
-  const [state, setState] = useState<number>(0);
-  const imgEle = document.getElementById("about_education_li_first_child");
-  const [multiply, setMultiply] = useState<number>(1);
+  const [state, setState] = useState(0);
+  const [imgEle, setImgEle] = useState();
+  const [multiply, setMultiply] = useState(1);
 
   function trans() {
     if (imgEle) {
@@ -52,14 +54,23 @@ const About_education = () => {
   }
 
   const { url, desc, title } = img[state];
+  useEffect(() => {
+    setImgEle(document.getElementById("about_education_li_first_child"));
+  }, []);
 
   return (
     <div className={style.main}>
+      <div className="py-8">
+        <h2 style={{textAlign:'center'}} onClick={()=>alert(`${window.innerHeight+' '+window.innerWidth}`)} className={style.header}>About and education</h2>
+      </div>
       <ul className={style.ul}>
         <li className={style.li}>
           <div
             className={style.li_first_child}
-            style={{ transform: `translateX(${-30 * multiply}px)`,translate:`${30 * multiply}px` }}
+            style={{
+              transform: `translateX(${-30 * multiply}px)`,
+              translate: `${30 * multiply}px`,
+            }}
             id="about_education_li_first_child"
           >
             <Image
@@ -73,16 +84,25 @@ const About_education = () => {
             />
           </div>
           <div className={style.li_second_child}>
+            <span className={style.li_nav_btn}>
+              <button
+                disabled={state ? false : true}
+                className=""
+                onClick={() => pre()}
+              >
+                left
+              </button>
+              <button
+                disabled={state != img.length - 1 ? false : true}
+                onClick={() => next()}
+              >
+                right
+              </button>
+            </span>
             <h2>{title}</h2>
             <p>{desc}</p>
           </div>
         </li>
-        <span className="flex justify-center items-center gap-x-2 py-2 px-4 absolute top-2">
-          <button className="" onClick={() => pre()}>
-            left
-          </button>
-          <button onClick={() => next()}>right</button>
-        </span>
       </ul>
     </div>
   );
@@ -99,4 +119,3 @@ const Expo = () => {
 };
 
 export default Expo;
-
