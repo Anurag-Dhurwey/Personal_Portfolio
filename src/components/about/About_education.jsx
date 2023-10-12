@@ -68,8 +68,8 @@ const About_education = () => {
           <div
             className={style.li_first_child}
             style={{
-              transform: `translateX(${-30 * multiply}px)`,
-              translate: `${30 * multiply}px`,
+              transform: `translateX(${-15 * multiply}px)`,
+              translate: `${15 * multiply}px`,
             }}
             id="about_education_li_first_child"
           >

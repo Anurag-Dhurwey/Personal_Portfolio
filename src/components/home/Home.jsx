@@ -6,6 +6,7 @@ import Navicons from "./miniComps/Navicons";
 import { Wrapper } from "@/container";
 import style from "./home.module.css";
 import { BiDownload } from "react-icons/bi";
+import Link from "next/link";
 const Home = () => {
   return (
     <>
@@ -22,12 +23,12 @@ const Home = () => {
               </h2>
               <h3>An intermediate Web developer;</h3>
             </div>
-            <button className={style.home_resume_btn}>
+            <Link href={'/resume'}  className={style.home_resume_btn}>
               Resume
               <span>
                 <BiDownload />
               </span>
-            </button>
+            </Link>
             <div className={style.home_bottom_objective}>
               <p className="">An intermediate Web developer;</p>
               <p className="">
