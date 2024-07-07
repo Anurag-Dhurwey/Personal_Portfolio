@@ -20,7 +20,6 @@ import {
 } from "../../assets";
 import Image from "next/image";
 import { Wrapper } from "@/container";
-
 const Skills = () => {
 
   const skills = [
@@ -60,6 +59,16 @@ const Skills = () => {
     { category: "Version Controls", list: [{ per: 40, logos: [git] }] },
   ];
 
+  const mainSkills = [
+    { title: 'ReactJs', logo: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/react-js-icon.png' },
+    { title: 'NextJs', logo: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/nextjs-icon.png' },
+    { title: 'Angular', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Angular_gradient.png' }
+    , { title: 'NodeJs', logo: nodejs },
+    { title: 'Express', logo: expressJs },
+    { title: 'MongoDB', logo: mongoDB }
+  ]
+
+
   return (
     <div className={style.skills_parent_div}>
       <div className="py-8">
@@ -67,12 +76,12 @@ const Skills = () => {
           SKILLS
         </h2>
       </div>
-      <ul className={style.skills_ul}>
-        {skills.map((item, i) => {
+      <ul className={`${style.skills_ul} flex-wrap gap-[10px]`}>
+        {/* {skills.map((item, i) => {
           const { category, list } = item;
 
           return (
-            <li key={i} style={{ alignSelf: "flex-start" ,paddingBottom:'8px',borderBottom:'2px dashed black'}}>
+            <li key={i} style={{ alignSelf: "flex-start" ,paddingBottom:'8px'}}>
               <h2 className={style.skills_category_head_title}>{category}:</h2>
               <ul className={style.skills_category_list}>
                 {list.map((skill, i) => {
@@ -110,14 +119,27 @@ const Skills = () => {
               </ul>
             </li>
           );
-        })}
+        })} */}
 
-        {!skills.length % 2 == 0 && (
+        {/* {!skills.length % 2 == 0 && (
           <li
             style={{ visibility: "hidden" }}
             className={style.skills_outer_bar}
           ></li>
-        )}
+        )} */}
+
+
+        {mainSkills.map(skill => {
+          return <li key={skill.title} className=" flex justify-center items-center flex-col">
+            <Image
+              src={skill.logo}
+              alt="skills"
+              className={style.skills_logo_img}
+              width={1000} height={1000}
+            />
+            <span className=" " style={{fontWeight:'bold'}}>{skill.title}</span>
+          </li>
+        })}
       </ul>
     </div>
   );
@@ -126,9 +148,9 @@ const Skills = () => {
 const Expo = () => {
   return (
     <>
-     <Wrapper id="skills" bg="bg-[var(--secondry-bg)]">
-      <Skills/>
-      </Wrapper> 
+      <Wrapper id="skills" bg="bg-[var(--secondry-bg)]">
+        <Skills />
+      </Wrapper>
     </>
   )
 }

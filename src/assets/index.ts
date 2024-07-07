@@ -23,6 +23,7 @@ import ts from "./img/skills_logo/ts.png";
 import git from "./img/skills_logo/git.png";
 import ecommerce from "./img/project/ecommerce.png";
 import social_media from "./img/project/social_media.png";
+import fuzionApp from "./img/project/fuzionApp.png";
 export {
   LOGO,
   html5,
@@ -41,7 +42,7 @@ export {
   ts,
   git,
 };
-export { ecommerce, social_media };
+export { ecommerce, social_media,fuzionApp };
 export { calling, mail };
 
 export { instagram, facebook, linkedin, twitter, github };

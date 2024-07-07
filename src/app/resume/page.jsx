@@ -3,12 +3,12 @@ import React from 'react'
 
 const Resume = () => {
 
-    const pdfUrl = '/resume/resume_4.3.pdf'; 
+    const pdfUrl = '/resume/resume_Apr_15_edited.pdf'; 
 
     const handleDownload = () => {
       const link = document.createElement('a');
       link.href = pdfUrl;
-      link.download = 'my-document.pdf'; 
+      link.download = 'Anurag_resume.pdf'; 
       link.click();
     };
 

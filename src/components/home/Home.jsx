@@ -23,13 +23,8 @@ const Home = () => {
               </h2>
               <h3>An intermediate Web developer;</h3>
             </div>
-            <Link href={'/resume'}  className={style.home_resume_btn}>
-              Resume
-              <span>
-                <BiDownload />
-              </span>
-            </Link>
-            <div className={style.home_bottom_objective}>
+          
+            <div className={`${style.home_bottom_objective} py-2 text-center`}>
               <p className="">An intermediate Web developer;</p>
               <p className="">
                 I can Integrate data from various backend services and
@@ -37,6 +32,14 @@ const Home = () => {
                 requirements based on technical needs.
               </p>
             </div>
+          <div className="py-4">
+          <Link href={'/resume'}  className={`${style.home_resume_btn}`}>
+              Resume
+              <span>
+                <BiDownload />
+              </span>
+            </Link>
+          </div>
           </div>
 
           <div className={`${style.home_right}`}>
@@ -44,12 +47,11 @@ const Home = () => {
               src={Profile_Img}
               alt="img"
               className={style.home_img}
-              style={{ maxWidth: "none" }}
+              style={{ maxWidth: "none" ,boxShadow:'8px 10px 25px #7fdbda'}}
             />
           </div>
         </div>
-
-        <Navicons />
+        {/* <Navicons /> */}
       </main>
     </>
   );

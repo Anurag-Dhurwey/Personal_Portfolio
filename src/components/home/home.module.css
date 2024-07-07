@@ -22,9 +22,9 @@
   background-color: rgba(245, 245, 220, 0.39);
   border-radius: 100%;
   overflow: hidden;
-  height: 500px;
+  height: 400px;
   max-height: 500px;
-  width: 500px;
+  width: 400px;
   z-index: 0;
   animation: 1s linear resizing_home_img;
 }
@@ -32,6 +32,7 @@
   height: 55vh;
   min-height: 500px;
   width: 40vw;
+  /* box-shadow: 4px 4px 5px rgba(228, 79, 201, 0.75); */
 }
 @keyframes resizing_home_img {
   from {
@@ -74,13 +75,16 @@
   justify-content: center;
   align-items: center;
   column-gap: 5px;
-  padding: 20px 5px;
+  padding: 6px 10px;
+  background-color: cornflowerblue;
+  border-radius: 10px;
+  box-shadow: 4px 4px 5px rgba(79, 228, 121, 0.75);
 }
 .home_name {
   width: fit-content;
   padding: 5px 8px;
   border-radius: 20px;
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 4px 5px rgba(79, 138, 228, 0.75);
 }
 
 @media (max-width: 850px) {

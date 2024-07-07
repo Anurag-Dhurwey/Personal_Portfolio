@@ -8,7 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { LOGO } from "@/assets";
 
-const Head_nav = ["home", "skills", "projects","education", "contact"];
+const Head_nav = ["home", "skills", "projects", "contact"];
 
 const Navbar = () => {
   const value = useSelector((state) => state.modeChanger.value);
@@ -82,9 +82,9 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      <div className="z-[10] text-xs sticky top-12 text-red-700 flex justify-center items-center">
+      {/* <div className="z-[10] text-xs sticky top-12 text-red-700 flex justify-center items-center">
         <p>This site is under devlopment</p>
-      </div>
+      </div> */}
     </>
   );
 };
