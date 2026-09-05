@@ -1,9 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Terminal } from "lucide-react";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { useSectionNav } from "@/components/scroll/section-nav";
+import { useLenis } from "@/components/providers/smooth-scroll";
 
 const TABS = [
   { label: "Home.tsx", dot: "text-syntax-function" },
@@ -13,23 +14,65 @@ const TABS = [
   { label: "Contact.tsx", dot: "text-syntax-comment" },
 ];
 
+const HIDE_AFTER = 12;
+const SHOW_AFTER = 8;
+const ALWAYS_SHOW_BELOW = 24;
+
 const Navbar = () => {
   const { activeIndex, progress, goToPanel } = useSectionNav();
+  const lenis = useLenis();
   const [scrolled, setScrolled] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
+  const lastY = useRef<number | null>(null);
+  const acc = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const onScroll = (y: number) => {
+      setScrolled(y > 8);
+
+      if (lastY.current === null) {
+        lastY.current = y;
+        return;
+      }
+
+      const delta = y - lastY.current;
+      lastY.current = y;
+
+      if (y < ALWAYS_SHOW_BELOW) {
+        setNavHidden(false);
+        acc.current = 0;
+        return;
+      }
+
+      if ((delta > 0 && acc.current < 0) || (delta < 0 && acc.current > 0)) {
+        acc.current = 0;
+      }
+      acc.current += delta;
+
+      if (acc.current > HIDE_AFTER) setNavHidden(true);
+      if (acc.current < -SHOW_AFTER) setNavHidden(false);
+    };
+
+    if (lenis) {
+      const unsubscribe = lenis.on("scroll", () => onScroll(lenis.scroll));
+      onScroll(lenis.scroll);
+      return unsubscribe;
+    }
+
+    const native = () => onScroll(window.scrollY);
+    native();
+    window.addEventListener("scroll", native, { passive: true });
+    return () => window.removeEventListener("scroll", native);
+  }, [lenis]);
 
   return (
     <motion.header
       initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className="fixed inset-x-0 top-3 z-50 flex justify-center px-3 sm:px-6"
+      animate={{ opacity: 1, y: navHidden ? "-120%" : 0 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      className={`fixed inset-x-0 top-3 z-50 flex justify-center px-3 sm:px-6 ${
+        navHidden ? "pointer-events-none" : ""
+      }`}
     >
       <div
         className={`w-full max-w-4xl overflow-hidden rounded-2xl border border-border bg-background/80 backdrop-blur-xl transition-shadow duration-300 ${

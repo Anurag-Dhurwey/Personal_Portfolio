@@ -14,7 +14,7 @@ const socials = [
   { Icon: FaGithub, link: "https://github.com/Anurag-Dhurwey" },
   {
     Icon: FaLinkedin,
-    link: "https://www.linkedin.com/in/anurag-dhurwey-03732024b/",
+    link: "https://in.linkedin.com/in/anurag-dhurwey-093278368",
   },
   { Icon: FaXTwitter, link: "https://twitter.com/anurag_dhurwey2" },
   { Icon: FaInstagram, link: "https://www.instagram.com/anurag__dhurwey/" },

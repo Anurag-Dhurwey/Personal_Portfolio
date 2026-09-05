@@ -7,10 +7,15 @@ import {
   Footer,
 } from "../components";
 import { SectionNavProvider, Section } from "@/components/scroll/section-nav";
+import { getGalleryPhotos } from "@/lib/cloudinary";
 
 const SECTION_COUNT = 5;
 
-export default function Anurag() {
+export const revalidate = 60;
+
+export default async function Anurag() {
+  const photos = await getGalleryPhotos();
+
   return (
     <SectionNavProvider count={SECTION_COUNT}>
       <Navbar />
@@ -24,7 +29,7 @@ export default function Anurag() {
         <Projects />
       </Section>
       <Section id="gallery" index={3}>
-        <Gallery />
+        <Gallery photos={photos} />
       </Section>
       <Section id="contact" index={4}>
         <Footer />

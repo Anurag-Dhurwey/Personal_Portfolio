@@ -4,37 +4,32 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-interface Photo {
+export interface Photo {
   src: string;
   alt: string;
   width: number;
   height: number;
 }
 
-// Free stock photos via picsum.photos — swap in real photos later by adding to src/assets/img/gallery.
-const photos: Photo[] = [
-  { src: "https://picsum.photos/seed/dev-workspace/600/800", alt: "Workspace", width: 600, height: 800 },
-  { src: "https://picsum.photos/seed/dev-code/600/650", alt: "Code", width: 600, height: 650 },
-  { src: "https://picsum.photos/seed/dev-city/600/900", alt: "City", width: 600, height: 900 },
-  { src: "https://picsum.photos/seed/dev-nature/600/700", alt: "Nature", width: 600, height: 700 },
-  { src: "https://picsum.photos/seed/dev-office/600/750", alt: "Office", width: 600, height: 750 },
-  { src: "https://picsum.photos/seed/dev-desk/600/850", alt: "Desk setup", width: 600, height: 850 },
-  { src: "https://picsum.photos/seed/dev-street/600/700", alt: "Street", width: 600, height: 700 },
-  { src: "https://picsum.photos/seed/dev-mountain/600/950", alt: "Mountain", width: 600, height: 950 },
-  { src: "https://picsum.photos/seed/dev-coffee/600/650", alt: "Coffee", width: 600, height: 650 },
-];
-
-const Gallery = () => {
+const Gallery = ({ photos }: { photos: Photo[] }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const close = useCallback(() => setActiveIndex(null), []);
   const showPrev = useCallback(
-    () => setActiveIndex((i) => (i === null ? i : (i - 1 + photos.length) % photos.length)),
-    []
+    () =>
+      setActiveIndex((i) =>
+        i === null || photos.length === 0
+          ? i
+          : (i - 1 + photos.length) % photos.length
+      ),
+    [photos.length]
   );
   const showNext = useCallback(
-    () => setActiveIndex((i) => (i === null ? i : (i + 1) % photos.length)),
-    []
+    () =>
+      setActiveIndex((i) =>
+        i === null || photos.length === 0 ? i : (i + 1) % photos.length
+      ),
+    [photos.length]
   );
 
   useEffect(() => {
@@ -54,6 +49,10 @@ const Gallery = () => {
         <span className="text-xs text-syntax-comment">{"// assets/gallery"}</span>
         <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Gallery</h2>
       </div>
+
+      {photos.length === 0 && (
+        <p className="text-sm text-muted-foreground">No photos yet.</p>
+      )}
 
       <div className="w-full max-w-5xl columns-2 sm:columns-3 gap-3 [column-fill:_balance]">
         {photos.map((photo, i) => (
