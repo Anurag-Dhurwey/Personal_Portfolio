@@ -14,7 +14,7 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        "main-font": "var(--main-font)",
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
     },
   },

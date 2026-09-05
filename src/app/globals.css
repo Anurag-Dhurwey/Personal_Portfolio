@@ -1,38 +1,120 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background: oklch(0.99 0.002 260);
+  --foreground: oklch(0.22 0.01 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.01 260);
+  --primary: oklch(0.5 0.16 255);
+  --primary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.95 0.005 260);
+  --muted-foreground: oklch(0.45 0.01 260);
+  --border: oklch(0.88 0.005 260);
+  --ring: oklch(0.6 0.12 255);
 
-
-  --primary-bg:#F0F8FF;
-  --secondry-bg:#fff5eb;
-  --main-font:'Pacifico',cursive;
+  --syntax-keyword: #a626a4;
+  --syntax-string: #50a14f;
+  --syntax-function: #4078f2;
+  --syntax-number: #986801;
+  --syntax-comment: #a0a1a7;
 }
 
+.dark {
+  --background: oklch(0.17 0.012 260);
+  --foreground: oklch(0.92 0 0);
+  --card: oklch(0.21 0.012 260);
+  --card-foreground: oklch(0.92 0 0);
+  --primary: oklch(0.72 0.14 255);
+  --primary-foreground: oklch(0.15 0 0);
+  --muted: oklch(0.25 0.012 260);
+  --muted-foreground: oklch(0.65 0.01 260);
+  --border: oklch(1 0 0 / 10%);
+  --ring: oklch(0.6 0.15 255);
 
+  --syntax-keyword: #c792ea;
+  --syntax-string: #c3e88d;
+  --syntax-function: #82aaff;
+  --syntax-number: #f78c6c;
+  --syntax-comment: #676e95;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-syntax-keyword: var(--syntax-keyword);
+  --color-syntax-string: var(--syntax-string);
+  --color-syntax-function: var(--syntax-function);
+  --color-syntax-number: var(--syntax-number);
+  --color-syntax-comment: var(--syntax-comment);
+}
+
+html {
+  overflow-x: hidden;
+}
 
 body {
   margin: 0;
   padding: 0;
-  /* color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
-    /* overflow:visible; */
+  background: var(--background);
+  color: var(--foreground);
+  isolation: isolate;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.site-content {
+  position: relative;
+  z-index: 1;
+}
 
-*{
-  margin: 0;
-  padding: 0;
+.matrix-rain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.92;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-rain {
+    display: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+@keyframes blink-caret {
+  50% {
+    opacity: 0;
+  }
+}
+.caret::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  background: var(--syntax-function);
+  vertical-align: text-bottom;
+  animation: blink-caret 1s step-start infinite;
 }
 

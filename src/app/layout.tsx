@@ -1,13 +1,17 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
-import { store } from "../redux/store";
-import { Provider } from "react-redux";
-import { Providers } from "@/redux/provider";
-const inter = Inter({ subsets: ["latin"] });
+import { JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme/theme-provider";
+import { SmoothScroll } from "@/components/providers/smooth-scroll";
+import { MatrixRain } from "@/components/background/matrix-rain";
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 export const metadata = {
-  title: "Anurag",
-  description: "Anurag dhurwey web-devloper portfolio website",
+  title: "Anurag Dhurwey — Web Developer",
+  description: "Anurag Dhurwey — web developer portfolio",
 };
 
 export default function RootLayout({
@@ -16,9 +20,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${jetbrainsMono.variable} font-mono antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <MatrixRain />
+          <SmoothScroll>
+            <div className="site-content">{children}</div>
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );
